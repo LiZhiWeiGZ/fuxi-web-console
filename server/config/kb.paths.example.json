@@ -1,0 +1,47 @@
+{
+  "navigation": {
+    "label": "\u6587\u6863",
+    "primaryTab": "arranged",
+    "titleFrom": ["frontmatter.title", "h1", "filename"],
+    "includeFallbackDocs": true
+  },
+  "tabs": [
+    {
+      "key": "arranged",
+      "label": "\u6574\u7406\u7248",
+      "path": "wiki/imported-excel",
+      "type": "markdown",
+      "role": "curated"
+    },
+    {
+      "key": "imageMd",
+      "label": "\u539f\u59cb\u6587\u4ef6",
+      "path": "raw/excel-md-with-images",
+      "type": "markdown",
+      "role": "source"
+    }
+  ],
+  "woven": {
+    "label": "\u4e13\u9898",
+    "titleFrom": ["frontmatter.title", "h1", "filename"],
+    "groups": [
+      {
+        "key": "topics",
+        "label": "\u4e3b\u9898\u9875",
+        "path": "wiki/topics",
+        "type": "wiki",
+        "role": "compiled_topic"
+      },
+      {
+        "key": "entities",
+        "label": "\u5b9e\u4f53\u9875",
+        "path": "wiki/entities",
+        "type": "wiki",
+        "role": "compiled_entity"
+      }
+    ]
+  },
+  "assets": {
+    "imageRoot": "raw/excel-images"
+  }
+}

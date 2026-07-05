@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fuxi 知识库工作台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <button id="mobileNavToggle" class="mobile-nav-toggle" type="button" aria-label="打开目录" aria-controls="appSidebar" aria-expanded="false">☰</button>
+  <div id="mobileBackdrop" class="mobile-backdrop" hidden></div>
+  <div id="appShell" class="app-shell">
+    <aside id="appSidebar" class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">F</div>
+        <div>
+          <div class="brand-title">fuxi</div>
+          <div class="brand-subtitle">知识库工作台</div>
+        </div>
+        <button id="mobileNavClose" class="mobile-nav-close" type="button" aria-label="关闭目录">×</button>
+      </div>
+      <div class="main-tabs" role="tablist" aria-label="主导航">
+        <button id="tabDocs" class="tab-button active" type="button" role="tab" aria-selected="true">文档</button>
+        <button id="tabWoven" class="tab-button" type="button" role="tab" aria-selected="false">专题</button>
+        <button id="tabChat" class="tab-button" type="button" role="tab" aria-selected="false">问答</button>
+      </div>
+      <section id="docSidebar" class="sidebar-panel active">
+        <div class="side-actions">
+          <input id="docSearch" class="search-input" type="search" placeholder="搜索文档">
+          <button id="refreshKb" class="icon-button" type="button" title="刷新知识库" aria-label="刷新知识库">↻</button>
+        </div>
+        <div id="refreshStatus" class="status-line" role="status"></div>
+        <nav id="docTree" class="doc-tree" aria-label="文档标题"></nav>
+      </section>
+      <section id="wovenSidebar" class="sidebar-panel">
+        <div class="side-actions">
+          <input id="wovenSearch" class="search-input" type="search" placeholder="搜索专题">
+          <button id="refreshWoven" class="icon-button" type="button" title="刷新专题" aria-label="刷新专题">↻</button>
+        </div>
+        <div id="wovenStatus" class="status-line" role="status"></div>
+        <nav id="wovenTree" class="doc-tree" aria-label="专题标题"></nav>
+      </section>
+      <section id="chatSidebar" class="sidebar-panel">
+        <button id="newChat" class="primary-button" type="button" aria-label="新建对话">+ 新对话</button>
+        <div id="chatSessions" class="chat-session-list" aria-label="历史对话"></div>
+      </section>
+    </aside>
+
+    <main class="main-area">
+      <section id="docsView" class="view active">
+        <header class="content-header">
+          <div>
+            <h1 id="docTitle">文档</h1>
+            <div id="docPath" class="path-line"></div>
+          </div>
+          <div id="docMeta" class="doc-meta"></div>
+        </header>
+        <div id="excelTabs" class="view-tabs hidden">
+          <button data-view="arranged" class="view-tab active" type="button">整理版</button>
+          <button data-view="imageMd" class="view-tab" type="button">原始文件</button>
+        </div>
+        <div class="document-layout">
+          <article id="docContent" class="markdown-body empty-state">正在读取知识库...</article>
+          <aside id="headingToc" class="toc-panel"></aside>
+        </div>
+      </section>
+
+      <section id="wovenView" class="view">
+        <header class="content-header">
+          <div>
+            <h1 id="wovenTitle">专题</h1>
+            <div id="wovenPath" class="path-line"></div>
+          </div>
+          <div id="wovenMeta" class="doc-meta"></div>
+        </header>
+        <div class="document-layout">
+          <article id="wovenContent" class="markdown-body empty-state">正在读取专题...</article>
+          <aside id="wovenToc" class="toc-panel"></aside>
+        </div>
+      </section>
+
+      <section id="chatView" class="view">
+        <header class="content-header chat-header">
+          <div>
+            <h1 id="chatTitle">新对话</h1>
+            <div class="path-line">历史只保存在当前浏览器</div>
+          </div>
+          <button id="deleteChat" class="ghost-button" type="button">删除</button>
+        </header>
+        <div id="messages" class="messages"></div>
+        <form id="chatForm" class="composer">
+          <textarea id="chatInput" rows="2" placeholder="询问知识库内容"></textarea>
+          <button class="send-button" type="submit">发送</button>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
+
+
+
+
