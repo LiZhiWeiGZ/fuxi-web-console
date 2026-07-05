@@ -152,13 +152,6 @@ docker compose up -d --build
 docker-compose up -d --build
 ```
 
-## 安全说明
-
-- 不要提交 `server/config/model.config.local.json`，里面会包含 API Key。
-- 公网部署建议开启 `BASIC_AUTH`。
-- 公网访问建议配置 HTTPS，否则 Basic Auth、聊天内容和知识库内容会明文传输。
-- 如果通过 Nginx/Caddy/宝塔反代，请确认 `Authorization` 请求头会转发到后端。
-
 ## 常用命令
 
 检查语法：
@@ -178,51 +171,3 @@ curl http://127.0.0.1:5177/api/health
 ```bash
 curl -u admin:change-this-password http://127.0.0.1:5177/api/health
 ```
-
-## 打包发布
-
-Windows 本地可以用内置脚本生成部署目录：
-
-```powershell
-.\deploy\pack-deploy.ps1
-```
-
-默认只打包网站代码和示例配置，不会复制：
-
-```text
-.env
-.env.local
-server/config/model.config.local.json
-server/config/kb.paths.local.json
-```
-
-如果确实需要把知识库一起放进部署目录，可以显式指定：
-
-```powershell
-.\deploy\pack-deploy.ps1 -IncludeKnowledgeBase -KnowledgeBasePath "..\ai-lib\knowledge-base"
-```
-
-## 上传 GitHub 前检查
-
-确认以下文件不要提交：
-
-```text
-.env
-.env.local
-server/config/model.config.local.json
-server/config/kb.paths.local.json
-logs/
-node_modules/
-```
-
-可以执行：
-
-```bash
-git status --short
-```
-
-确认没有本地密钥、知识库正文大文件或日志被加入仓库。
-
-## 详细部署
-
-更多 VPS 部署说明见 [DEPLOY.md](DEPLOY.md)。
