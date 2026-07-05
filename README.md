@@ -77,7 +77,7 @@ cp server/config/kb.paths.example.json server/config/kb.paths.local.json
 启动步骤：
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/LiZhiWeiGZ/fuxi-web-console.git
 cd fuxi-web-console
 cp .env.example .env.local
 cp server/config/model.config.example.json server/config/model.config.local.json
