@@ -66,19 +66,6 @@ server/config/kb.paths.example.json
 cp server/config/kb.paths.example.json server/config/kb.paths.local.json
 ```
 
-- 程序会优先读取 `server/config/kb.paths.local.json`；如果不存在，则读取 `server/config/kb.paths.example.json`。
-- 所有 `path` 都是相对于 `KB_ROOT` 的路径，`KB_ROOT` 在 `.env.local` 中配置。
-- `navigation.label` 是左侧文档区的名称。
-- `navigation.primaryTab` 指定文档页默认打开哪个页签，对应 `tabs[].key`。
-- `navigation.titleFrom` 指定标题提取顺序，默认依次读取 frontmatter 的 `title`、一级标题、文件名。
-- `tabs` 配置“文档”页里的内容来源。默认包含：
-  - `arranged`：整理版，读取 `wiki/imported-excel`。
-  - `imageMd`：原始文件，读取 `raw/excel-md-with-images`。
-- `woven` 配置“专题”页。默认包含：
-  - `topics`：主题页，读取 `wiki/topics`。
-  - `entities`：实体页，读取 `wiki/entities`。
-- `assets.imageRoot` 配置图片资源目录，默认读取 `raw/excel-images`。
-
 ## 普通 Node 安装
 
 要求：
