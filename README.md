@@ -2,7 +2,7 @@
 
 `fuxi-web-console` 是一个独立的知识库网页工作台，用来浏览本地 Markdown 知识库，并通过后端调用大模型完成问答。
 
-项目本身不包含知识库内容，也不把知识库打进代码仓库。运行时通过 `KB_ROOT` 指向外部 `knowledge-base` 目录。
+项目本身不包含知识库内容。运行时通过 `KB_ROOT` 指向外部 `knowledge-base` 目录。
 
 ## 界面预览
 
@@ -40,11 +40,52 @@ fuxi/
 ../ai-lib/knowledge-base
 ```
 
-如果你的知识库放在其他位置，请修改 `.env.local`。
+如果知识库放在其他位置，请修改 `.env.local`。
 
 ## 知识库目录要求
 
-默认配置会读取以下目录：
+推荐保留 `ai-lib` 的完整结构：
+
+```text
+ai-lib/
+  07-ai-product-thinking-20260604.md
+  08-ai-architecture-thinking-20260610.md
+  09-ai-tech-thinking-20260609.md
+  AI-KB-PRODUCT-DESIGN.md
+  EXCEL-IMPORT-PIPELINE.md
+  WEB-KB-REQUIREMENTS.md
+  README.md
+  package.json
+  scripts/
+  dist/
+  knowledge-base/
+    CLAUDE.md
+    README.md
+    briefs/
+    config/
+    inbox/
+    indexes/
+    logs/
+    notes/
+    raw/
+      excel-md-with-images/
+      excel-images/
+      excel-md/
+      excel/
+      excel-anchored-md/
+      excel-anchored-images/
+      pdf/
+      text/
+      web/
+    templates/
+    views/
+    wiki/
+      imported-excel/
+      topics/
+      entities/
+```
+
+网页默认读取以下内容：
 
 ```text
 knowledge-base/wiki/imported-excel
@@ -60,13 +101,11 @@ knowledge-base/wiki/entities
 server/config/kb.paths.example.json
 ```
 
-如果需要自定义路径，复制一份本地配置：
+如果需要自定义路径，可以复制一份本地配置：
 
 ```bash
 cp server/config/kb.paths.example.json server/config/kb.paths.local.json
 ```
-
-`server/config/kb.paths.local.json` 已被 `.gitignore` 排除，不应提交到仓库。
 
 ## 普通 Node 安装
 
