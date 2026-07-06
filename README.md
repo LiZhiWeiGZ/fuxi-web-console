@@ -31,7 +31,19 @@
 fuxi/
   fuxi-web-console/
   ai-lib/
+    07-ai-product-thinking-20260604.md
+    08-ai-architecture-thinking-20260610.md
+    09-ai-tech-thinking-20260609.md
+    AI-KB-PRODUCT-DESIGN.md
+    EXCEL-IMPORT-PIPELINE.md
+    WEB-KB-REQUIREMENTS.md
+    README.md
+    package.json
+    scripts/
+    dist/
     knowledge-base/
+      raw/
+      wiki/
 ```
 
 网站默认读取：
@@ -43,47 +55,6 @@ fuxi/
 如果知识库放在其他位置，请修改 `.env.local`。
 
 ## 知识库目录要求
-
-推荐保留 `ai-lib` 的完整结构：
-
-```text
-ai-lib/
-  07-ai-product-thinking-20260604.md
-  08-ai-architecture-thinking-20260610.md
-  09-ai-tech-thinking-20260609.md
-  AI-KB-PRODUCT-DESIGN.md
-  EXCEL-IMPORT-PIPELINE.md
-  WEB-KB-REQUIREMENTS.md
-  README.md
-  package.json
-  scripts/
-  dist/
-  knowledge-base/
-    CLAUDE.md
-    README.md
-    briefs/
-    config/
-    inbox/
-    indexes/
-    logs/
-    notes/
-    raw/
-      excel-md-with-images/
-      excel-images/
-      excel-md/
-      excel/
-      excel-anchored-md/
-      excel-anchored-images/
-      pdf/
-      text/
-      web/
-    templates/
-    views/
-    wiki/
-      imported-excel/
-      topics/
-      entities/
-```
 
 网页默认读取以下内容：
 
