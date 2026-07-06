@@ -6,8 +6,6 @@
 
 ## 界面预览
 
-以下截图已做模糊脱敏处理，仅展示布局与交互形态。
-
 ![文档浏览](document.png)
 
 ![专题页](theme.png)
@@ -67,8 +65,6 @@ server/config/kb.paths.example.json
 ```bash
 cp server/config/kb.paths.example.json server/config/kb.paths.local.json
 ```
-
-路径配置说明：
 
 - 程序会优先读取 `server/config/kb.paths.local.json`；如果不存在，则读取 `server/config/kb.paths.example.json`。
 - 所有 `path` 都是相对于 `KB_ROOT` 的路径，`KB_ROOT` 在 `.env.local` 中配置。

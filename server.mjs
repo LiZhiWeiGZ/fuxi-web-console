@@ -59,9 +59,78 @@ function requireText(filePath) {
   return existsSync(filePath) ? Buffer.from(readFileSync(filePath)).toString('utf8') : '';
 }
 
+function parseJsonWithComments(text) {
+  return JSON.parse(stripJsonComments(String(text || '').replace(/^\uFEFF/, '')));
+}
+
+function stripJsonComments(text) {
+  let output = '';
+  let inString = false;
+  let escaped = false;
+  let inLineComment = false;
+  let inBlockComment = false;
+
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    const next = text[index + 1];
+
+    if (inLineComment) {
+      if (char === '\n' || char === '\r') {
+        inLineComment = false;
+        output += char;
+      }
+      continue;
+    }
+
+    if (inBlockComment) {
+      if (char === '*' && next === '/') {
+        inBlockComment = false;
+        index += 1;
+      } else if (char === '\n' || char === '\r') {
+        output += char;
+      }
+      continue;
+    }
+
+    if (inString) {
+      output += char;
+      if (escaped) {
+        escaped = false;
+      } else if (char === '\\') {
+        escaped = true;
+      } else if (char === '"') {
+        inString = false;
+      }
+      continue;
+    }
+
+    if (char === '"') {
+      inString = true;
+      output += char;
+      continue;
+    }
+
+    if (char === '/' && next === '/') {
+      inLineComment = true;
+      index += 1;
+      continue;
+    }
+
+    if (char === '/' && next === '*') {
+      inBlockComment = true;
+      index += 1;
+      continue;
+    }
+
+    output += char;
+  }
+
+  return output;
+}
+
 function loadKbPathConfig() {
   const defaults = {
-    kbRoot: path.join(KB_PROJECT_ROOT, 'knowledge-base'),
+    kbRoot: '',
     navigation: {
       label: '文档',
       primaryTab: 'arranged',
@@ -85,7 +154,7 @@ function loadKbPathConfig() {
   const configPath = process.env.KB_PATHS_CONFIG || (existsSync(KB_PATH_CONFIG_LOCAL) ? KB_PATH_CONFIG_LOCAL : KB_PATH_CONFIG_EXAMPLE);
   if (!existsSync(configPath)) return defaults;
   try {
-    const parsed = JSON.parse(requireText(configPath).replace(/^\uFEFF/, ''));
+    const parsed = parseJsonWithComments(requireText(configPath));
     return mergeKbPathConfig(defaults, parsed);
   } catch (error) {
     console.warn(`Failed to load KB path config ${configPath}: ${error.message}`);

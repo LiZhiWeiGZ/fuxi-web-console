@@ -1,47 +1,81 @@
 {
+  // kbRoot：知识库根目录；留空时使用 .env.local 里的 KB_ROOT，再没有则使用 KB_PROJECT_ROOT/knowledge-base。
+  "kbRoot": "",
+  // navigation：控制左侧文档目录和文档页默认行为。
   "navigation": {
+    // label：左侧文档目录的大类名称。
     "label": "文档",
+    // primaryTab：文档页默认打开的页签，必须对应 tabs 中某一项的 key。
     "primaryTab": "arranged",
+    // titleFrom：文档标题提取顺序，按数组顺序依次尝试。
     "titleFrom": ["frontmatter.title", "h1", "filename"],
+    // includeFallbackDocs：主页签没有某个文档时，是否从其他文档页签补充到左侧目录。
     "includeFallbackDocs": true
   },
+  // tabs：文档页的内容来源配置，每一项会显示为主内容区的一个页签。
   "tabs": [
     {
+      // key：页签唯一标识，前端切换和 primaryTab 都使用这个值。
       "key": "arranged",
+      // label：页签显示名称。
       "label": "整理版",
+      // path：相对于 KB_ROOT 的 Markdown 目录路径。
       "path": "wiki/imported-excel",
+      // type：文档类型标记，当前主要用于前端和接口返回识别。
       "type": "markdown",
+      // role：资料层级标记，curated 表示 AI 整理后的文档。
       "role": "curated"
     },
     {
+      // key：页签唯一标识，建议保持稳定，避免影响前端当前选中状态。
       "key": "imageMd",
+      // label：页签显示名称。
       "label": "原始文件",
+      // path：相对于 KB_ROOT 的原始带图 Markdown 目录路径。
       "path": "raw/excel-md-with-images",
+      // type：文档类型标记，当前主要用于前端和接口返回识别。
       "type": "markdown",
+      // role：资料层级标记，source 表示更接近原始 Excel 的来源文档。
       "role": "source"
     }
   ],
+  // woven：专题页配置，用于展示往回编织后的主题页和实体页。
   "woven": {
+    // label：顶部大页签的显示名称。
     "label": "专题",
+    // titleFrom：专题页文档标题提取顺序，按数组顺序依次尝试。
     "titleFrom": ["frontmatter.title", "h1", "filename"],
+    // groups：专题页下的目录分组配置。
     "groups": [
       {
+        // key：专题分组唯一标识。
         "key": "topics",
+        // label：专题分组显示名称。
         "label": "主题页",
+        // path：相对于 KB_ROOT 的主题页 Markdown 目录路径。
         "path": "wiki/topics",
+        // type：文档类型标记，wiki 表示知识库编织层文档。
         "type": "wiki",
+        // role：资料层级标记，compiled_topic 表示按主题编织后的综合页。
         "role": "compiled_topic"
       },
       {
+        // key：专题分组唯一标识。
         "key": "entities",
+        // label：专题分组显示名称。
         "label": "实体页",
+        // path：相对于 KB_ROOT 的实体页 Markdown 目录路径。
         "path": "wiki/entities",
+        // type：文档类型标记，wiki 表示知识库编织层文档。
         "type": "wiki",
+        // role：资料层级标记，compiled_entity 表示按实体编织后的索引页。
         "role": "compiled_entity"
       }
     ]
   },
+  // assets：知识库资源路径配置。
   "assets": {
+    // imageRoot：相对于 KB_ROOT 的图片资源根目录，原始文件里的图片会从这里读取。
     "imageRoot": "raw/excel-images"
   }
 }
