@@ -66,6 +66,15 @@ server/config/kb.paths.example.json
 cp server/config/kb.paths.example.json server/config/kb.paths.local.json
 ```
 
+重点字段说明：
+
+- `kbRoot`：知识库根目录。留空时使用 `.env.local` 里的 `KB_ROOT`。
+- `navigation.primaryTab`：文档页默认打开的页签，需要对应 `tabs[].key`。
+- `navigation.titleFrom`：标题提取顺序，默认依次读取 frontmatter 的 `title`、一级标题、文件名。
+- `tabs[].path`：文档页各页签读取的目录，路径相对于 `KB_ROOT`。
+- `woven.groups[].path`：专题页各分组读取的目录，路径相对于 `KB_ROOT`。
+- `assets.imageRoot`：原始文件 Markdown 中图片资源的根目录，路径相对于 `KB_ROOT`。
+
 ## 普通 Node 安装
 
 要求：

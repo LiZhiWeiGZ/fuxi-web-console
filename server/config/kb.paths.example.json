@@ -1,16 +1,11 @@
 {
-  // 知识库根目录。留空时使用 .env.local 里的 KB_ROOT；再没有则使用 KB_PROJECT_ROOT/knowledge-base。
   "kbRoot": "",
   "navigation": {
     "label": "文档",
-    // 文档页默认打开的页签，必须对应 tabs 里的某个 key。
     "primaryTab": "arranged",
-    // 文档标题提取顺序：frontmatter.title -> 一级标题 -> 文件名。
     "titleFrom": ["frontmatter.title", "h1", "filename"],
-    // 主目录以 primaryTab 为准；如果主目录缺文档，是否从其他 tabs 补充。
     "includeFallbackDocs": true
   },
-  // 文档页页签。path 均相对于 KB_ROOT；key 需要稳定，primaryTab 会引用它。
   "tabs": [
     {
       "key": "arranged",
@@ -29,9 +24,7 @@
   ],
   "woven": {
     "label": "专题",
-    // 专题页标题提取顺序；含义同 navigation.titleFrom。
     "titleFrom": ["frontmatter.title", "h1", "filename"],
-    // 专题页分组。path 均相对于 KB_ROOT；role 用于问答时识别资料层级。
     "groups": [
       {
         "key": "topics",
@@ -50,7 +43,6 @@
     ]
   },
   "assets": {
-    // 原始文件 Markdown 中引用的图片资源根目录，相对于 KB_ROOT。
     "imageRoot": "raw/excel-images"
   }
 }
