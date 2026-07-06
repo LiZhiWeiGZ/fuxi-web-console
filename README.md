@@ -31,16 +31,6 @@
 fuxi/
   fuxi-web-console/
   ai-lib/
-    07-ai-product-thinking-20260604.md
-    08-ai-architecture-thinking-20260610.md
-    09-ai-tech-thinking-20260609.md
-    AI-KB-PRODUCT-DESIGN.md
-    EXCEL-IMPORT-PIPELINE.md
-    WEB-KB-REQUIREMENTS.md
-    README.md
-    package.json
-    scripts/
-    dist/
     knowledge-base/
       raw/
       wiki/
