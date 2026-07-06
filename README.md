@@ -66,14 +66,53 @@ server/config/kb.paths.example.json
 cp server/config/kb.paths.example.json server/config/kb.paths.local.json
 ```
 
-重点字段说明：
+配置示例：
 
-- `kbRoot`：知识库根目录。留空时使用 `.env.local` 里的 `KB_ROOT`。
-- `navigation.primaryTab`：文档页默认打开的页签，需要对应 `tabs[].key`。
-- `navigation.titleFrom`：标题提取顺序，默认依次读取 frontmatter 的 `title`、一级标题、文件名。
-- `tabs[].path`：文档页各页签读取的目录，路径相对于 `KB_ROOT`。
-- `woven.groups[].path`：专题页各分组读取的目录，路径相对于 `KB_ROOT`。
-- `assets.imageRoot`：原始文件 Markdown 中图片资源的根目录，路径相对于 `KB_ROOT`。
+```jsonc
+{
+  "kbRoot": "", // 知识库根目录。留空时使用 .env.local 里的 KB_ROOT。
+  "navigation": {
+    "label": "文档",
+    "primaryTab": "arranged", // 文档页默认打开的页签，需要对应 tabs[].key。
+    "titleFrom": ["frontmatter.title", "h1", "filename"], // 标题提取顺序。
+    // ...
+  },
+  "tabs": [
+    {
+      "key": "arranged",
+      "label": "整理版",
+      "path": "wiki/imported-excel", // 文档页页签读取的目录，路径相对于 KB_ROOT。
+      // ...
+    },
+    {
+      "key": "imageMd",
+      "label": "原始文件",
+      "path": "raw/excel-md-with-images",
+      // ...
+    }
+  ],
+  "woven": {
+    "label": "专题",
+    "groups": [
+      {
+        "key": "topics",
+        "label": "主题页",
+        "path": "wiki/topics", // 专题页分组读取的目录，路径相对于 KB_ROOT。
+        // ...
+      },
+      {
+        "key": "entities",
+        "label": "实体页",
+        "path": "wiki/entities",
+        // ...
+      }
+    ]
+  },
+  "assets": {
+    "imageRoot": "raw/excel-images" // 原始文件 Markdown 中图片资源的根目录，路径相对于 KB_ROOT。
+  }
+}
+```
 
 ## 普通 Node 安装
 
