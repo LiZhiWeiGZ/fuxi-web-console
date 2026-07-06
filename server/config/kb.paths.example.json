@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "label": "\u6587\u6863",
+    "label": "文档",
     "primaryTab": "arranged",
     "titleFrom": ["frontmatter.title", "h1", "filename"],
     "includeFallbackDocs": true
@@ -8,33 +8,33 @@
   "tabs": [
     {
       "key": "arranged",
-      "label": "\u6574\u7406\u7248",
+      "label": "整理版",
       "path": "wiki/imported-excel",
       "type": "markdown",
       "role": "curated"
     },
     {
       "key": "imageMd",
-      "label": "\u539f\u59cb\u6587\u4ef6",
+      "label": "原始文件",
       "path": "raw/excel-md-with-images",
       "type": "markdown",
       "role": "source"
     }
   ],
   "woven": {
-    "label": "\u4e13\u9898",
+    "label": "专题",
     "titleFrom": ["frontmatter.title", "h1", "filename"],
     "groups": [
       {
         "key": "topics",
-        "label": "\u4e3b\u9898\u9875",
+        "label": "主题页",
         "path": "wiki/topics",
         "type": "wiki",
         "role": "compiled_topic"
       },
       {
         "key": "entities",
-        "label": "\u5b9e\u4f53\u9875",
+        "label": "实体页",
         "path": "wiki/entities",
         "type": "wiki",
         "role": "compiled_entity"
