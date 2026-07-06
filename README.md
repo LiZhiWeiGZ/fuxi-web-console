@@ -147,6 +147,22 @@ BASIC_AUTH=
 npm start
 ```
 
+`npm start` 是前台运行。终端关闭后，服务也会停止。
+
+Linux/macOS 后台运行：
+
+```bash
+mkdir -p logs
+nohup npm start > logs/fuxi-web-console.log 2>&1 &
+```
+
+Windows PowerShell 后台运行：
+
+```powershell
+New-Item -ItemType Directory -Force logs | Out-Null
+Start-Process -WindowStyle Hidden powershell -ArgumentList '-NoProfile', '-Command', 'npm start *> logs/fuxi-web-console.log'
+```
+
 默认访问：
 
 ```text
