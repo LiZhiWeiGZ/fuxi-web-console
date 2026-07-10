@@ -1,0 +1,10 @@
+{
+  "name": "fuxi",
+  "host": "127.0.0.1",
+  "port": 5177,
+  "kbProjectRoot": "../sgsg_knowledge_base",
+  "kbRoot": "../sgsg_knowledge_base/knowledge-base",
+  "kbPathsConfig": "server/config/kb.paths.example.json",
+  "modelConfig": "server/config/model.config.example.json",
+  "basicAuth": ""
+}

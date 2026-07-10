@@ -1,12 +1,13 @@
-﻿{
+{
   "name": "fuxi-web-console",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.mjs",
-    "dev": "node server.mjs",
-    "check": "node --check server.mjs && node --check public/app.js"
+    "start": "node server/server.mjs",
+    "start:all": "node server/start-all.mjs",
+    "dev": "node server/server.mjs",
+    "check": "node --check server/server.mjs && node --check server/start-all.mjs && node --check public/app.js"
   },
   "engines": {
     "node": ">=18"

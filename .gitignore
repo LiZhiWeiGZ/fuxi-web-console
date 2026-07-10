@@ -2,6 +2,8 @@
 .env.local
 server/config/model.config.local.json
 server/config/kb.paths.local.json
+server/config/env.local
+server/config/instances/*.local.json
 logs/
 node_modules/
 dist/
